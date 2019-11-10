@@ -1,0 +1,1 @@
+REPLACE INTO task VALUE(1, '2019-11-10', 'Task to test', '2019-11-10', '0', 'First Task', 1);
