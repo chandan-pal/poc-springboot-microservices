@@ -33,7 +33,7 @@ public class ViewController {
 		System.out.println("id:: " + user.getUser_id());
 		myTasks.addObject("userTasks", userTasks);
 		System.out.println("tasks:: " + userTasks.getTasks());
-		myTasks.setViewName("/view/MyTasks");
+		myTasks.setViewName("view/MyTasks");
 		return myTasks;
 		
 	}
