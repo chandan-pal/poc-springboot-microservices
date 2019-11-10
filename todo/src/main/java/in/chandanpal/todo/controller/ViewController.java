@@ -26,8 +26,8 @@ public class ViewController {
 	@PostMapping("/MyTasks")
 	public ModelAndView myTasksView(@RequestParam("userEmail") String userEmail) {
 		ModelAndView myTasks = new ModelAndView();
-		User user = restTemplate.getForObject("http://localhost:8032/users/" + userEmail, User.class);
-		UserTasks userTasks = restTemplate.getForObject("http://localhost:8031/user/" + user.getUser_id() + "/tasks", UserTasks.class);
+		User user = restTemplate.getForObject("http://user-service/users/" + userEmail, User.class);
+		UserTasks userTasks = restTemplate.getForObject("http://tasks-service/user/" + user.getUser_id() + "/tasks", UserTasks.class);
 		myTasks.addObject("user", user);
 		System.out.println("email:: " + user.getEmail());
 		System.out.println("id:: " + user.getUser_id());
