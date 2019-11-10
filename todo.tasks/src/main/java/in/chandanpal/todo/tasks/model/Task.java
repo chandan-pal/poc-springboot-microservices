@@ -16,8 +16,9 @@ public class Task {
 	private String description;
 	private Date dueDate;
 	private Date created;
-	private char priority;
+	private int priority;
 	private long userId;
+	private int status;
 	
 	public long getTaskId() {
 		return taskId;
@@ -49,16 +50,22 @@ public class Task {
 	public void setCreated(Date created) {
 		this.created = created;
 	}
-	public char getPriority() {
-		return priority;
-	}
-	public void setPriority(char priority) {
-		this.priority = priority;
-	}
 	public long getUserId() {
 		return userId;
 	}
 	public void setUserId(long userId) {
 		this.userId = userId;
+	}
+	public int getStatus() {
+		return status;
+	}
+	public void setStatus(int status) {
+		this.status = status;
+	}
+	public void setPriority(int priority) {
+		this.priority = priority;
+	}
+	public int getPriority() {
+		return priority;
 	}
 }

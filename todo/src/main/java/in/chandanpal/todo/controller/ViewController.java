@@ -17,7 +17,7 @@ public class ViewController {
 	@Autowired
 	RestTemplate restTemplate;
 	
-	@GetMapping("/MyTasks")
+	@GetMapping(value= {"/", "/MyTasks"})
 	public ModelAndView getMyTasksView() {
 		return new ModelAndView("view/MyTasks");
 		
@@ -29,8 +29,12 @@ public class ViewController {
 		User user = restTemplate.getForObject("http://localhost:8032/users/" + userEmail, User.class);
 		UserTasks userTasks = restTemplate.getForObject("http://localhost:8031/user/" + user.getUser_id() + "/tasks", UserTasks.class);
 		myTasks.addObject("user", user);
+		System.out.println("email:: " + user.getEmail());
+		System.out.println("id:: " + user.getUser_id());
 		myTasks.addObject("userTasks", userTasks);
-		return new ModelAndView("view/MyTasks");
+		System.out.println("tasks:: " + userTasks.getTasks());
+		myTasks.setViewName("/view/MyTasks");
+		return myTasks;
 		
 	}
 }

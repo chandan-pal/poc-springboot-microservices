@@ -11,6 +11,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
 
@@ -18,8 +19,27 @@
   <h1>Welcome to My 'ToDo' Application !</h1>
   <p>A demo to-do application... utilzing concept of microservices</p>
   <form class="form-inline" action="#" th:action="@{/MyTasks}" method="post">
-    	Your email here: <input id="userEmail" name="userEmail" type="email" value="" />
+    	Your email here: <input id="userEmail" name="userEmail" type="email"/>
   </form>
+</div>
+
+<div id="tasks" th:if="${userTasks != null}">
+	<div th:each="task : ${userTasks.tasks}"  style="padding:10px">
+	  <div class="card" style="width:400px;">
+	  <div class="card-body">
+	  	<i class="fa fa-file fa-2x" style="color:blue"></i><br /><br />
+	  	<a href="#" class="card-link" th:text="${#dates.format(task.created, 'dd-MMM-yyyy')}"></a>
+	  	<span style="float:right" th:if="${task.priority} == 1" ><i class="fa fa-angle-double-up fa-2x" style="color:red"></i></span>
+	  	<span style="float:right" th:if="${task.priority} == 0" ><i class="fa fa-angle-double-down fa-2x" style="color:green"></i></span>
+	  	<h4 class="card-title" th:utext="${task.title}"></h4>
+	  	<p class="card-text" th:utext="${task.description}"></p>
+	  	<span style="float:right" th:if="${task.status} == 0" ><i class="fa fa-hourglass-half fa-2x" style="color:orange"></i></span>
+	  	<span style="float:right" th:if="${task.status} == 1" ><i class="fa fa-check-circle fa-2x" style="color:green"></i></span>
+	    Due:
+	    <a href="#" class="card-link"  th:text="${#dates.format(task.dueDate, 'dd-MMM-yyyy')}" style="color:red"></a>
+	  </div>
+	  </div>
+	</div>
 </div>
   
 

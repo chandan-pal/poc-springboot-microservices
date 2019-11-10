@@ -19,7 +19,7 @@ public class TaskService {
 	@GetMapping("user/{userId}/tasks")
 	public UserTasks getTaskForUser(@PathVariable("userId") long userId) {
 		UserTasks userTasks = new UserTasks();
-		userTasks.setUserTasks(taskRepository.findByUserId(userId));
+		userTasks.setTasks(taskRepository.findByUserId(userId));
 		return userTasks;
 		
 	}
