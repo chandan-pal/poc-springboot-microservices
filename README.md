@@ -20,7 +20,7 @@
         <img src="https://img.shields.io/static/v1?label=MySQL&message=8.0.15&color=orange" />
     </a>
     <a alt="netflix-eureka">
-        <img src="https://img.shields.io/static/v1?label=JWT&message=Hoxton.RC1&color=green" />
+        <img src="https://img.shields.io/static/v1?label=netflix-eureka&message=Hoxton.RC1&color=green" />
     </a>
 </p>
 
