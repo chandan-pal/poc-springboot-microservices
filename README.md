@@ -33,7 +33,7 @@ This is a sample application to show to-do list of a user, with:
 2. seperate tasks-service to store all the task
 3. todo - service which talks to other services to collect all data and generate a view to display to the user
 
-I have used spring-cloud-starter-netflix-eureka client and server (Version #Hoxton.RC1#) for implemention service discovery technology, instead of hardcoded call to other services. This is helpful if we have multiple instance of same service running (for scalability and loadbalancing) or if we are using the same code in multiple environments(in that case the server URL may change environment to environment). 
+I have used <b>spring-cloud-starter-netflix-eureka</b> client and server (Version <b>Hoxton.RC1</b>) for implemention service discovery technology, instead of hardcoded call to other services. This is helpful if we have multiple instance of same service running (for scalability and loadbalancing) or if we are using the same code in multiple environments(in that case the server URL may change environment to environment). 
 
 ## Note ##
 This is just a demonstration application and, as of now only has read funcationality.
