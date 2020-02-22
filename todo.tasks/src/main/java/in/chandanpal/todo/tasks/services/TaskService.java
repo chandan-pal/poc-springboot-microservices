@@ -16,10 +16,10 @@ public class TaskService {
 	@Autowired
 	private TaskRepository taskRepository;
 	
-	@GetMapping("user/{userId}/tasks")
-	public UserTasks getTaskForUser(@PathVariable("userId") long userId) {
+	@GetMapping("user/{userEmail}/tasks")
+	public UserTasks getTaskForUser(@PathVariable("userEmail") String userEmail) {
 		UserTasks userTasks = new UserTasks();
-		userTasks.setTasks(taskRepository.findByUserId(userId));
+		userTasks.setTasks(taskRepository.findByUserEmail(userEmail));
 		return userTasks;
 		
 	}

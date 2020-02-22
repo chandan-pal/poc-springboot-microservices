@@ -10,8 +10,8 @@ import in.chandanpal.todo.tasks.model.Task;
 @Repository("userRepository")
 public interface TaskRepository extends JpaRepository<Task, Long>{
 
-	List<Task> findByTaskIdAndUserId(long taskId, long userId);
+	List<Task> findByTaskIdAndUserEmail(long taskId, String userEmail);
 
-	List<Task> findByUserId(long userId);
+	List<Task> findByUserEmail(String userEmail);
 	
 }

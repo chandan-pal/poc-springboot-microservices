@@ -19,8 +19,13 @@
   <h1>Welcome to My 'ToDo' Application !</h1>
   <p>A demo to-do application... utilzing concept of microservices</p>
   <form class="form-inline" action="#" th:action="@{/MyTasks}" method="post">
-    	Your email here: <input id="userEmail" name="userEmail" type="email"/>
+    	Your email here: <input th:if="${user != null}" id="userEmail" name="userEmail" type="email" th:value="${user.email}"/>
+    	<input th:unless="${user != null}" id="userEmail" name="userEmail" type="email"/>
   </form>
+  <hr class="my-4">
+  <div class="" id="userInfo" th:if="${user != null}">
+	Hello <span th:utext="${user.firstName}"></span> <span th:utext="${user.lastName}"></span>, below are your tasks...
+  </div>
 </div>
 
 <div id="tasks" th:if="${userTasks != null}">
