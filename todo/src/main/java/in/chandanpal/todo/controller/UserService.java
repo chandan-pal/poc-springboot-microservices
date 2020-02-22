@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 
 import in.chandanpal.todo.model.User;
 
@@ -17,7 +18,14 @@ public class UserService {
 	public UserService() {
 	}
 	
-	@HystrixCommand(fallbackMethod = "fallbackUserInfo") 
+	@HystrixCommand(
+			fallbackMethod = "fallbackUserInfo",
+			threadPoolKey = "userInfoPool",
+			threadPoolProperties = {
+				@HystrixProperty(name = "coreSize", value = "20"),
+				@HystrixProperty(name = "maxQueueSize", value ="10")
+			}
+	) 
 	public User getUserInfo(String userEmail) {
 		return restTemplate.getForObject("http://user-service/users/" + userEmail, User.class);
 	}
